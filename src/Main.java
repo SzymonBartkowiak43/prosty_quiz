@@ -23,6 +23,8 @@ public class Main {
         objasnienie = wcz.getObjasnienia();
 
 
+
+
         System.out.println("Witaj w moim quizie!");
         System.out.println("Na ile pytań chcesz odpowiedzieć? (1-10)");
 
@@ -32,13 +34,13 @@ public class Main {
                 System.out.println("Podales liczbe poza zakresem, sprobuj jeszcze raz");
             }
         }while((wyb < 0 || wyb > 10));
-        sc.nextLine();
 
         int liczbaZadanychPytan;
         int liczbaPrawidlowychOdpowedzi = 0;
         int losowePytanie;
         String odpwiedzUzytkownika;
         Random random = new Random();
+        odpwiedzUzytkownika = sc.nextLine(); //wylapanie entera
 
         for(liczbaZadanychPytan = 0; liczbaZadanychPytan < wyb ;liczbaZadanychPytan++) {
             losowePytanie = random.nextInt(10);
@@ -58,7 +60,7 @@ public class Main {
             }
         }
 
-        System.out.println("Udalo Ci sie zdobyc " + liczbaPrawidlowychOdpowedzi + "na " + wyb + "zadanych pytan");
+        System.out.println("Udalo Ci sie odpowiedziec na  " + liczbaPrawidlowychOdpowedzi + " z " + wyb + " zadanych pytan");
 
 
 

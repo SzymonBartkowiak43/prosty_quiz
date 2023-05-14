@@ -12,21 +12,25 @@ public class wczytaniePytan {
     public void wczytaj() throws FileNotFoundException {
         File file = new File("pytania.txt");
         Scanner scanner = new Scanner(file);
-        int licznikLini = 0;
+        int licznikLini = 1;
         String pytanie;
 
-        while (scanner.hasNext()) {
-            if(licznikLini % 8 == 0) { //wczytanie pytan
+        while (scanner.hasNext())
+        {
+            if(licznikLini % 8 == 1) { //wczytanie pytan
                 pytanie = scanner.nextLine();
                 pyt.add(pytanie);
             }
-            else if(licznikLini % 8 == 5) {//wczytanie prawidlowej odpwiedzi
+            else if(licznikLini % 8 == 6) {//wczytanie prawidlowej odpwiedzi
                 pytanie = scanner.nextLine();
                 praw.add(pytanie);
             }
-            else if(licznikLini % 8 == 6) { //wczytanie objasnienia
+            else if(licznikLini % 8 == 7) { //wczytanie objasnienia
                 pytanie = scanner.nextLine();
                 wyjasnienie.add(pytanie);
+            }
+            else if(licznikLini %8 == 0) {
+                pytanie = scanner.nextLine();
             }
             else {
                 String scalonePytanie;
@@ -40,7 +44,6 @@ public class wczytaniePytan {
                 odp.add(scalonePytanie);
                 licznikLini += 3;
             }
-
             licznikLini++;
         }
     }
@@ -57,6 +60,7 @@ public class wczytaniePytan {
         return praw;
     }
     public ArrayList<String> getObjasnienia() {
-        return praw;
+        return wyjasnienie;
     }
+
 }
