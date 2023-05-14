@@ -13,7 +13,7 @@ public class wczytaniePytan {
         String pytanie;
 
         while (scanner.hasNext()) {
-            pytanie = scanner.next();
+            pytanie = scanner.nextLine();
             if(licznikLini % 7 == 0) {
                 pyt.add(pytanie);
             }

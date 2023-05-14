@@ -12,9 +12,7 @@ public class Main {
         wczytaniePytan wcz = new wczytaniePytan();
         wcz.wczytaj();
         pytania = wcz.getPytania();
-        for (int i = 0; i < pytania.size(); i++) {
-            System.out.println(pytania.get(i));
-        }
+   
 
         System.out.println("Witaj w moim quizie!");
         System.out.println("Na ile pytań chcesz odpowiedzieć? (1-10)");
