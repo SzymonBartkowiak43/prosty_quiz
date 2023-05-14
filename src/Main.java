@@ -1,13 +1,20 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         int wyb;
         ArrayList<String> pytania = new ArrayList<String>();
 
+        wczytaniePytan wcz = new wczytaniePytan();
+        wcz.wczytaj();
+        pytania = wcz.getPytania();
+        for (int i = 0; i < pytania.size(); i++) {
+            System.out.println(pytania.get(i));
+        }
 
         System.out.println("Witaj w moim quizie!");
         System.out.println("Na ile pytań chcesz odpowiedzieć? (1-10)");
@@ -18,9 +25,6 @@ public class Main {
                 System.out.println("Podales liczbe poza zakresem, sprobuj jeszcze raz");
             }
         }while((wyb < 0 || wyb > 10));
-
-
-
 
     }
 }
