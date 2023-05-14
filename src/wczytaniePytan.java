@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 
 public class wczytaniePytan {
     private  ArrayList<String> pyt = new ArrayList<String>();
+    private ArrayList<String> odp = new ArrayList<String>();
+    private ArrayList<String> praw = new ArrayList<String>();
+    private ArrayList<String> wyjasnienie = new ArrayList<String>();
 
     public void wczytaj() throws FileNotFoundException {
         File file = new File("pytania.txt");
@@ -13,15 +16,47 @@ public class wczytaniePytan {
         String pytanie;
 
         while (scanner.hasNext()) {
-            pytanie = scanner.nextLine();
-            if(licznikLini % 7 == 0) {
+            if(licznikLini % 8 == 0) { //wczytanie pytan
+                pytanie = scanner.nextLine();
                 pyt.add(pytanie);
             }
+            else if(licznikLini % 8 == 5) {//wczytanie prawidlowej odpwiedzi
+                pytanie = scanner.nextLine();
+                praw.add(pytanie);
+            }
+            else if(licznikLini % 8 == 6) { //wczytanie objasnienia
+                pytanie = scanner.nextLine();
+                wyjasnienie.add(pytanie);
+            }
+            else {
+                String scalonePytanie;
+                scalonePytanie = scanner.nextLine();
+                pytanie = scanner.nextLine();
+                scalonePytanie += "\n" + pytanie;
+                pytanie = scanner.nextLine();
+                scalonePytanie += "\n" + pytanie;
+                pytanie = scanner.nextLine();
+                scalonePytanie += "\n" + pytanie;
+                odp.add(scalonePytanie);
+                licznikLini += 3;
+            }
+
             licznikLini++;
         }
     }
 
     public ArrayList<String> getPytania() {
         return pyt;
+    }
+
+    public ArrayList<String> getOdpowiedzi() {
+        return odp;
+    }
+
+    public ArrayList<String> getPrawidlowe() {
+        return praw;
+    }
+    public ArrayList<String> getObjasnienia() {
+        return praw;
     }
 }
