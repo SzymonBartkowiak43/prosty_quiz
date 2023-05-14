@@ -1,12 +1,14 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
         Scanner sc = new Scanner(System.in);
         int wyb;
+
         ArrayList<String> pytania = new ArrayList<String>();
         ArrayList<String> odpowiedzi = new ArrayList<String>();
         ArrayList<String> prawidlowe = new ArrayList<String>();
@@ -30,6 +32,33 @@ public class Main {
                 System.out.println("Podales liczbe poza zakresem, sprobuj jeszcze raz");
             }
         }while((wyb < 0 || wyb > 10));
+        sc.nextLine();
+
+        int liczbaZadanychPytan;
+        int liczbaPrawidlowychOdpowedzi = 0;
+        int losowePytanie;
+        String odpwiedzUzytkownika;
+        Random random = new Random();
+
+        for(liczbaZadanychPytan = 0; liczbaZadanychPytan < wyb ;liczbaZadanychPytan++) {
+            losowePytanie = random.nextInt(10);
+
+            System.out.println(pytania.get(losowePytanie));
+            System.out.println(odpowiedzi.get(losowePytanie));
+            odpwiedzUzytkownika = sc.nextLine();
+
+            if(odpwiedzUzytkownika.equalsIgnoreCase(prawidlowe.get(losowePytanie))) {
+                System.out.println("Gratulacje prawidlowa odpwoiedz!");
+                liczbaPrawidlowychOdpowedzi ++;
+            }
+            else {
+                System.out.println("Niestety twoja odpowiedz jest bledna ;/, prawdilowa odpowiedz to: ");
+                System.out.println(prawidlowe.get(losowePytanie));
+                System.out.println(objasnienie.get(losowePytanie));
+            }
+        }
+
+        System.out.println("Udalo Ci sie zdobyc " + liczbaPrawidlowychOdpowedzi + "na " + wyb + "zadanych pytan");
 
 
 
