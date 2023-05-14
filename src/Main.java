@@ -25,7 +25,6 @@ public class Main {
 
 
 
-
         System.out.println("Witaj w moim quizie!");
         System.out.println("Na ile pytań chcesz odpowiedzieć? (1-10)");
 
@@ -67,7 +66,7 @@ public class Main {
 
         System.out.println("Udalo Ci sie odpowiedziec na  " + liczbaPrawidlowychOdpowedzi + " z " + wyb + " zadanych pytan");
 
-
+        sc.close();
 
     }
 }
