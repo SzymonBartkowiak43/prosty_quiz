@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -41,9 +42,13 @@ public class Main {
         String odpwiedzUzytkownika;
         Random random = new Random();
         odpwiedzUzytkownika = sc.nextLine(); //wylapanie entera
+        HashSet<Integer> czyWystapilopytanie = new HashSet<>();
 
         for(liczbaZadanychPytan = 0; liczbaZadanychPytan < wyb ;liczbaZadanychPytan++) {
-            losowePytanie = random.nextInt(10);
+            do {
+                losowePytanie = random.nextInt(10);
+            }while(czyWystapilopytanie.contains(losowePytanie));
+            czyWystapilopytanie.add(losowePytanie);
 
             System.out.println(pytania.get(losowePytanie));
             System.out.println(odpowiedzi.get(losowePytanie));
